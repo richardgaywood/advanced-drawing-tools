@@ -5,7 +5,7 @@ Hooks.once("libWrapper.Ready", () => {
     libWrapper.register(MODULE_ID, "DrawingConfig.prototype._getSubmitData", function (wrapped, ...args) {
         const data = foundry.utils.flattenObject(wrapped(...args));
 
-        if (this.form.querySelector(`input[class="${MODULE_ID}--lineStyle-dash"]`).checked) {
+        if (this.form.querySelector(`input[class="${MODULE_ID}--lineStyle-dash"]`)?.checked) {
             data[`flags.${MODULE_ID}.lineStyle.dash`] = [
                 Number(data[`flags.${MODULE_ID}.lineStyle.dash`][0]) || 8,
                 Number(data[`flags.${MODULE_ID}.lineStyle.dash`][1]) || 5
